@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const ejs = require("ejs");
 const session = require('express-session');
-const config = require('config.json');
+const config = require('config.json')('./config.json');
 
 const app = express();
 app.set('view engine', 'ejs');
