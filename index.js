@@ -5,7 +5,7 @@ const ejs = require("ejs");
 const session = require('express-session');
 const http = require('http');
 const hostname = '45.147.197.154';
-const port = 3000;
+const port = 22;
 
 const app = express();
 app.set('view engine', 'ejs');
