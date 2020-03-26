@@ -1,0 +1,13 @@
+{
+    "Customer": {
+        "http": {
+            "host": "0.0.0.0",
+            "port": 3000,
+            "publicRoot": "public"
+        },
+        "credit": {
+            "initialLimit": 100,
+            "initialDays": 1
+        }
+    }
+}
