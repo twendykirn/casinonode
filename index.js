@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const ejs = require("ejs");
 const session = require('express-session');
 const http = require('http');
-const hostname = '45.147.197.154';
+const hostname = '127.0.0.1';
 const port = 3000;
 
 const app = express();
