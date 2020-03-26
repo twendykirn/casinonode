@@ -2,7 +2,7 @@
     "domain": "www.easyvin.net",
     "http": {
         "host": "0.0.0.0",
-        "port": 8000,
+        "port": 5000,
         "publicRoot": "public"
     }
 }
