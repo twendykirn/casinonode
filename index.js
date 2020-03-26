@@ -137,3 +137,7 @@ app.get('/logout', (req, res) => {
     res.clearCookie('user_sid');
     res.redirect('/');
 });
+
+app.listen(config.http.port, function (req, res) {
+    res.write('Server started!');
+});
