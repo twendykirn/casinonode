@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Casino</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/games.css" />
+</head>
+
+<body>
+  <header>
+    <div class="fixed-container">
+      <div class="logo">LOGO</div>
+      <nav class="header__buttons">
+        <div class="first-section__desc__statistics__online">
+          <span>Сейчас играют:</span>
+          <div class="first-section__desc__statistics__online__users">
+            <img src="../img/icons/user.svg" alt="user icon" />
+            <span>23718</span>
+          </div>
+        </div>
+        <div class="header__avatar">
+          <div class="header__avatar__logout"><img src="../img/icons/e33.svg" alt="e33" /></div>
+          <div class="header__avatar__photo">
+            <img <%= photo %> />
+          </div>
+          <div class="header__avatar__balance">
+            <span>38000</span>
+            <img src="../img/coin.png" alt="coin" />
+          </div>
+        </div>
+        <a class="btn-login btn-add-balance">
+          <img src="../img/icons/add.svg" alt="plus" />Пополнить
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="menu">
+      <div class="menu__items">
+        <div class="menu__items__item" id="double">
+          <img src="../img/icons/casino-chip.svg"><span>Fortune</span>
+        </div>
+        <div class="menu__items__item" id="jackpot">
+          <img src="../img/icons/slot-machine.svg"><span>JackPot</span>
+        </div>
+        <div class="menu__items__item" id="nvuti">
+          <img src="../img/icons/chip.svg"><span>Nvuti</span>
+        </div>
+        <div class="menu__items__item" id="withdraw">
+          <img src="../img/icons/cash.svg"><span>Вывод/Ввод средств</span>
+        </div>
+        <div class="menu__items__item" id="ref">
+          <img src="../img/icons/employee.svg"><span>Реферальная программа</span>
+        </div>
+        <div class="menu__items__item" id="faq">
+          <img src="../img/icons/faq.svg"><span>FAQ</span>
+        </div>
+        <div class="menu__items__item" id="bonus">
+          <img src="../img/icons/euro.svg"><span>Бонусные монетки</span>
+        </div>
+        <div class="menu__items__item" id="youtube">
+          <img src="../img/icons/youtube.svg"><span>Для ютуберов</span>
+        </div>
+        <a href="https://vk.com/im?media=&sel=-185691473" target="_blank" class="menu__items__item" id="support">
+          <img src="../img/icons/volunteer.svg"><span>Поддержка</span>
+        </a>
+        <a href="/logout" class="menu__items__item" id="exit">
+          <img src="../img/icons/exit.svg"><span>Выйти</span>
+        </a>
+      </div>
+      <div class="menu__btn"><img src="../img/icons/menubtn.svg"></div>
+    </div>
+    <div class="fixed-container">
