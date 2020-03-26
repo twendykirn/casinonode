@@ -142,6 +142,6 @@ app.get('/logout', (req, res) => {
 
 let server = require('http').Server(app);
 
-server.listen(process.env.PORT || config.http.port, process.env.IP, function () {
+server.listen(config.http.port, config.http.host, function () {
     console.log("Listening!");
 });
