@@ -39,6 +39,8 @@ let sessionChecker = (req, res, next) => {
 };
 
 app.get("/", function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.render("home");
 });
 
@@ -138,4 +140,8 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(config.http.port);
+let server = require('http').Server(app);
+
+server.listen(process.env.PORT || config.http.port, process.env.IP, function () {
+    console.log("Listening!");
+});
