@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const ejs = require("ejs");
 const session = require('express-session');
 const http = require('http');
-const hostname = '45.147.197.154';
 const port = 3000;
 
 const app = express();
@@ -41,7 +40,6 @@ let sessionChecker = (req, res, next) => {
 };
 
 app.get("/", function (req, res) {
-    res.sendFile('index.html');
     res.render("home");
 });
 
@@ -141,13 +139,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.writeHead(301, { Location: 'http://easyvin.net' });
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Welcome to Node.js!\n');
-});
-
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(port, () => {
+    console.log(`Server running with port ${port}`);
 });
