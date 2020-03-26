@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const ejs = require("ejs");
 const session = require('express-session');
 const http = require('http');
+const hostname = '45.147.197.154';
 const port = 3000;
 
 const app = express();
@@ -139,6 +140,12 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-server.listen(port, () => {
-    console.log(`Server running with port ${port}`);
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Welcome to Node.js!\n');
+});
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
