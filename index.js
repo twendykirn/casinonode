@@ -138,6 +138,4 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(config.http.port, function (req, res) {
-    res.write('Server started!');
-});
+app.listen(config.http.port);
