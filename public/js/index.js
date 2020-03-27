@@ -31,6 +31,22 @@ $(document).ready(function () {
     })
   });
 
+  $('.btn-add-balance').on('click', function () {
+    $('.menu__items__item').removeClass('focus');
+    $('#withdraw').addClass('focus');
+    $.post({
+      url: '/withdraw',
+      data: { word: "withdraw" }
+    }).done(function (res) {
+      if (res != 'error') {
+        $('main .fixed-container').html(res);
+        $.getScript('../js/withdraw.js');
+      } else {
+        location.reload(true);
+      }
+    })
+  });
+
   $('#withdraw').on('click', function () {
     $('.menu__items__item').removeClass('focus');
     $('#withdraw').addClass('focus');
@@ -41,6 +57,22 @@ $(document).ready(function () {
       if (res != 'error') {
         $('main .fixed-container').html(res);
         $.getScript('../js/withdraw.js');
+      } else {
+        location.reload(true);
+      }
+    })
+  });
+
+  $('#ref').on('click', function () {
+    $('.menu__items__item').removeClass('focus');
+    $('#ref').addClass('focus');
+    $.post({
+      url: '/ref',
+      data: { word: "ref" }
+    }).done(function (res) {
+      if (res != 'error') {
+        $('main .fixed-container').html(res);
+        $.getScript('../js/ref.js');
       } else {
         location.reload(true);
       }

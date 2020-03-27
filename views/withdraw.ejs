@@ -6,29 +6,61 @@
         <div class="withdraw-body__categories__out active">Вывести</div>
         <div class="withdraw-body__categories__in">Пополнить</div>
     </div>
-    <div class="youtube-body__items">
-        <div class="youtube-body__items__item">
-            <img src="../img/icons/discount.svg" alt="">
-            <p>Беспроцентный<br />вывод средств</p>
+    <h5>Выберите платёжную систему</h5>
+    <div class="withdraw-body__out">
+        <div class="withdraw-body__methods">
+            <div class="withdraw-body__methods__background"></div>
+            <div class="withdraw-body__methods__qiwi method" id="qiwiOut">
+                <img src="../img/logo-qiwi.png">
+            </div>
+            <div class="withdraw-body__methods__sber method" id="sberOut">
+                <img src="../img/logo-sber.png">
+            </div>
+            <div class="withdraw-body__methods__webmoney method" id="webmoneyOut">
+                <img src="../img/logo-webmoney.png">
+            </div>
         </div>
-        <div class="youtube-body__items__item">
-            <img src="../img/icons/percent.svg" alt="">
-            <p>Беспроцентный<br />вывод средств</p>
+        <h5>Введите сумму и номер счета</h5>
+        <span class="for-withdraw">Доступно для вывода: <span class="balance">38000</span><img
+                src="../img/coin.png" /></span>
+        <input type="number" name="numberOfAccount" placeholder="Номер кошелька" id="numberOfAccount">
+        <input type="number" name="amountOfCoins" placeholder="Сумма вывода (в монетках)" id="amountOfCoins">
+        <div class="grey-line"></div>
+        <div class="withdraw-body__commission">Комиссия: <span>2%</span></div>
+        <div class="withdraw-body__result">Итого к выводу: <span>0</span> &#8381;</div>
+        <div class="withdraw-body__condition">
+            <input type="checkbox" name="checkConditions" id="checkConditions">
+            <label for="checkConditions">Я подтверждаю правильность введеных мною данных</label>
         </div>
-        <div class="youtube-body__items__item">
-            <img src="../img/icons/slot-machine.svg" alt="">
-            <p>Беспроцентный<br />вывод средств</p>
-        </div>
-        <div class="youtube-body__items__item">
-            <img src="../img/icons/credit-card(2).svg" alt="">
-            <p>Беспроцентный<br />вывод средств</p>
+        <div class="g-recaptcha" data-sitekey="6Le-geQUAAAAALi9G4uRhykukRAZNPEzCMsNDRQj"></div>
+        <div class="btn-login btn-writevk">
+            Вывести средства <img src="../img/icons/right.svg" alt="arrow" />
         </div>
     </div>
-    <div class="youtube-body__condition">
-        <h6>ГЛАВНОЕ УСЛОВИЕ:</h6>
-        <p>Ваш канал должен содержать<br /><span>минимум 1000 подписчиков</span></p>
-        <a href="https://vk.com/im?media=&sel=-185691473" target="_blank" class="btn-login btn-writevk">
-            Написать нам <img src="../img/icons/right.svg" alt="arrow" />
-        </a>
+    <div class="withdraw-body__in">
+        <div class="withdraw-body__methods">
+            <div class="withdraw-body__methods__background"></div>
+            <div class="withdraw-body__methods__qiwi method" id="qiwiIn">
+                <img src="../img/logo-qiwi.png">
+            </div>
+            <div class="withdraw-body__methods__private24 method" id="private24In">
+                <img src="../img/logo-private24.png">
+            </div>
+            <div class="withdraw-body__methods__yandex method" id="yandexIn">
+                <img src="../img/logo-yandex.png">
+            </div>
+            <div class="withdraw-body__methods__sber method" id="sberIn">
+                <img src="../img/logo-sber.png">
+            </div>
+            <div class="withdraw-body__methods__webmoney method" id="webmoneyIn">
+                <img src="../img/logo-webmoney.png">
+            </div>
+        </div>
+        <h5>Введите сумму и перейдите на страницу оплаты</h5>
+        <input type="number" name="amountOfMoney" placeholder="Сумма пополнения" id="amountOfMoney">
+        <div class="grey-line"></div>
+        <div class="btn-login btn-writevk">
+            Пополнить счет <img src="../img/icons/right.svg" alt="arrow" />
+        </div>
     </div>
 </div>

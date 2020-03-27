@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='icon' href='favicon.ico' type='image/x-icon' />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <title>Casino</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <title>EasyMoney</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/games.css" />
 </head>
@@ -13,7 +15,7 @@
 <body>
   <header>
     <div class="fixed-container">
-      <div class="logo">LOGO</div>
+      <div class="logo"><img src="../img/icons/logo.svg" alt=""></div>
       <nav class="header__buttons">
         <div class="first-section__desc__statistics__online">
           <span>Сейчас играют:</span>
@@ -23,7 +25,7 @@
           </div>
         </div>
         <div class="header__avatar">
-          <div class="header__avatar__logout"><img src="../img/icons/e33.svg" alt="e33" /></div>
+          <a href="/logout" class="header__avatar__logout"><img src="../img/icons/e33.svg" alt="e33" /></a>
           <div class="header__avatar__photo">
             <img <%= photo %> />
           </div>

@@ -38,6 +38,10 @@ let sessionChecker = (req, res, next) => {
     }
 };
 
+app.get('*', function (req, res) {
+    res.redirect('/');
+});
+
 app.get("/", function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -48,9 +52,9 @@ const passport = require('passport');
 const VKontakteStrategy = require('passport-vkontakte').Strategy;
 
 passport.use(new VKontakteStrategy({
-    clientID: '7376972',
-    clientSecret: 'tbI5oCIF6MWDkhhvfEki',
-    callbackURL: "http://easykesh.ru/auth/vkontakte/callback",
+    clientID: '7373573',
+    clientSecret: '9NfXagL0YkFxnRiKBr3j',
+    callbackURL: "http://localhost:3000/auth/vkontakte/callback",
     scope: ['groups'],
     profileFields: ['uid', 'first_name', 'last_name', 'photo_big']
 },
@@ -119,6 +123,23 @@ app.route('/withdraw').post(function (req, res) {
     } else {
         let sess = req.session;
         res.render('withdraw');
+    }
+}).get(function (req, res) {
+    res.redirect('/');
+});
+
+app.route('/ref').post(function (req, res) {
+    if (!req.session.user && !req.cookies.user_sid && !req.body.word) {
+        res.send('error');
+    } else {
+        let sess = req.session;
+        if (sess.user['photo_big'] == undefined) {
+            res.redirect('/');
+        } else {
+            res.render('ref', {
+                photo: "src=" + sess.user['photo_big']
+            })
+        }
     }
 }).get(function (req, res) {
     res.redirect('/');
