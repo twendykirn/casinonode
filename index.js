@@ -54,7 +54,7 @@ const VKontakteStrategy = require('passport-vkontakte').Strategy;
 passport.use(new VKontakteStrategy({
     clientID: '7373573',
     clientSecret: '9NfXagL0YkFxnRiKBr3j',
-    callbackURL: "https://easykesh.ru/auth/vkontakte/callback",
+    callbackURL: "http://easykesh.ru/auth/vkontakte/callback",
     scope: ['groups'],
     profileFields: ['uid', 'first_name', 'last_name', 'photo_big']
 },
