@@ -4,7 +4,7 @@ $(document).ready(function () {
         socket.on('time', function (time) {
             let backgroundWidth = time / (45000 / 100);
             $('.jackpot-body__progress-bar__background').css('width', backgroundWidth + "%");
-            $('.jackpot-body__timer label').html(time / 1000);
+            $('.jackpot-body__timer label').html(time / 1000 + " сек");
             if (time == 0) {
                 $('.jackpot-body__bets__item').remove();
             }
