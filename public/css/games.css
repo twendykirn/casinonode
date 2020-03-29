@@ -1,10 +1,14 @@
 header {
-  min-height: 120px;
+  min-height: 110px;
 }
 
 .header__buttons span {
   min-width: auto;
   margin-right: 0;
+}
+
+.first-section__desc__statistics__online {
+  transform: scale(0.9);
 }
 
 .header__avatar {
@@ -74,10 +78,65 @@ header {
 
 .btn-add-balance {
   justify-content: start;
+  transform: scale(0.9);
 }
 
 .btn-add-balance img {
   margin-left: 40px;
+}
+
+.mob-header {
+  justify-content: space-between;
+  display: none;
+}
+
+.mob-header .header__avatar, .mob-header .first-section__desc__statistics__online {
+  margin-left: 0;
+}
+
+.mob-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mob-menu i {
+  background: linear-gradient(66deg, #546cf0, #5babf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+  font-size: 35px;
+}
+
+@media screen and (max-width: 730px) {
+  header .fixed-container {
+    display: none;
+  }
+
+  header .mob-header {
+    display: flex;
+  }
+
+  main .menu__btn {
+    display: none;
+  }
+
+  main .menu {
+    z-index: 10;
+    display: flex;
+    width: 0;
+    overflow: hidden;
+    transition: .9s;
+  }
+
+  main .menu__items {
+    width: 100%;
+  }
+
+  main .menu__items__item span {
+    display: inline;
+  }
 }
 
 main {
@@ -554,7 +613,7 @@ main .fixed-container .green-line {
   background-color: #f8f8f8;
   margin: 10px 0;
   font-family: "ProximaNova-Regular";
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(0, 0, 0, .6);
   border: none;
   max-width: 207px;
@@ -901,5 +960,427 @@ main .fixed-container .green-line {
 
   .ref-body__ref-code__code, .ref-body__invite-code__code input {
     margin: 30px 0;
+  }
+}
+
+.jackpot-body  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 682px;
+  width: 92%;
+  margin-bottom: 90px;
+}
+
+.jackpot-body .logo {
+  width: 150px;
+  margin-bottom: 40px;
+}
+
+.jackpot-body__stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 510px;
+  width: 98%;
+  min-height: 99px;
+  background-color: #fff;
+  border-radius: 50px;
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+.jackpot-body__stats .grey-line {
+  width: 1px;
+  height: 26px;
+  margin: 0 35px;
+}
+
+.jackpot-body__stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jackpot-body__stats__item span {
+  display: flex;
+  align-items: center;
+  font-family: "ProximaNova-Semibold";
+  font-size: 18px;
+  text-align: center;
+}
+
+.jackpot-body__stats__item img {
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+}
+
+.jackpot-body__stats__item p {
+  font-family: "ProximaNova-Light";
+  font-size: 12px;
+  opacity: .54;
+  text-align: center;
+}
+
+.jackpot-body__user-story {
+  font-family: "ProximaNova-Regular";
+  font-size: 13px;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.jackpot-body__user-story img {
+  width: 16px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.jackpot-body label {
+  font-family: "ProximaNova-Regular";
+  font-size: 14px;
+  opacity: .5;
+}
+
+.jackpot-body__modes,
+.jackpot-body__progress-bar,
+.jackpot-body__user-balance,
+.jackpot-body__bet-amount,
+.jackpot-body__bets {
+  max-width: 605px;
+  width: 98%;
+}
+
+.jackpot-body__modes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+  max-width: 605px;
+  width: 98%;
+}
+
+.jackpot-body__modes div {
+  width: 176px;
+  height: 76px;
+  border-radius: 37px;
+}
+
+.jackpot-body__modes__background {
+  position: absolute;
+  border: 2px solid #83c550;
+  transition: 1.2s;
+}
+
+.jackpot-body__modes__item {
+  background-color: #fff;
+  border: 2px solid #e9ecff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.jackpot-body__modes__item h6 {
+  font-family: "ProximaNova-Regular";
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.jackpot-body__modes__item span {
+  font-family: "ProximaNova-Semibold";
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.jackpot-body__modes__item span img {
+  width: 14px;
+  height: 14px;
+  margin-left: 5px;
+}
+
+.jackpot-body__modes__item label {
+  font-family: "ProximaNova-Semibold";
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+
+.jackpot-body__modes__item label img {
+  width: 8px;
+  height: 8px;
+  margin-left: 3px;
+}
+
+.jackpot-body__jackpot-rn {
+  font-family: "ProximaNova-Semibold";
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.jackpot-body__jackpot-rn img {
+  width: 17px;
+  height: 17px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+.jackpot-body__progress-bar {
+  height: 68px;
+  border-radius: 34px;
+  background-color: #e9ecff;
+  position: relative;
+}
+
+.jackpot-body__progress-bar__background {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 34px;
+  border-bottom-left-radius: 34px;
+  background: linear-gradient(66deg, #546cf0, #5babf6);
+  transition: 1s;
+}
+
+.jackpot-body__progress-bar__background .wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 34px;
+  border-bottom-left-radius: 34px;
+}
+
+.wrapper img {
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+}
+
+.wrapper img:last-child {
+  bottom: auto;
+  top: -15px;
+  transform: rotate(-180deg);
+}
+
+.jackpot-body__timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.jackpot-body__timer span {
+  font-family: "ProximaNova-Semibold";
+  font-size: 14px;
+}
+
+.jackpot-body__timer label {
+  font-family: "ProximaNova-Regular";
+  font-size: 13px;
+  opacity: .5;
+}
+
+.jackpot-body__user-balance {
+  font-family: "ProximaNova-Semibold";
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.jackpot-body__user-balance img {
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  margin-bottom: 2px;
+}
+
+.jackpot-body__bet-amount {
+  position: relative;
+}
+
+.jackpot-body__bet-amount input {
+  width: 86%;
+  height: 45px;
+  padding: 0 20px;
+  background-color: #f0f0f0;
+  border-radius: 23px;
+  font-family: "ProximaNova-Regular";
+  font-size: 16px;
+  border: none;
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+
+.jackpot-body__bet-amount input[type='number']::-webkit-outer-spin-button,
+.jackpot-body__bet-amount input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+.jackpot-body__btn-bet {
+  border-top-right-radius: 23px;
+  border-bottom-right-radius: 23px;
+  color: #fff;
+  background: linear-gradient(66deg, #546cf0, #5babf6);
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 15px;
+  height: 45px;
+  border: none;
+  width: 20%;
+  min-width: 70px;
+  cursor: pointer;
+  font-family: "ProximaNova-Semibold";
+  font-size: 11px;
+}
+
+.jackpot-body__bets {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 22px;
+  overflow-x: hidden;
+  transition: 1.2s;
+}
+
+.jackpot-body__bets__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 73px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.jackpot-body__bets__item:last-child {
+  border-bottom: none;
+}
+
+.jackpot-body__bets__item__info {
+  display: flex;
+  align-items: center;
+  font-family: "ProximaNova-Regular";
+  font-size: 13px;
+}
+
+.jackpot-body__bets__item__info .photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 120%;
+}
+
+.jackpot-body__bets__item__amount {
+  display: flex;
+  align-items: center;
+  font-family: "ProximaNova-Semibold";
+  font-size: 13px;
+}
+
+.jackpot-body__bets__item__amount label {
+  font-family: "ProximaNova-Regular";
+  font-size: 12px;
+  opacity: .4;
+  margin-right: 5px;
+}
+
+.jackpot-body__bets__item__amount img {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 2px;
+  margin-left: 4px;
+}
+
+.jackpot-body__bets__item__chance {
+  display: flex;
+  align-items: center;
+}
+
+.jackpot-body__tickets {
+  display: flex;
+  flex-direction: column;
+  font-family: "ProximaNova-Regular";
+  font-size: 13px;
+  color: rgba(0, 0, 0, .5);
+}
+
+.jackpot-body__tickets__number {
+  font-family: "ProximaNova-Semibold";
+  color: rgba(0, 0, 0, 1);
+}
+
+.jackpot-body__percent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #588ef3;
+  border-radius: 50%;
+  font-family: "ProximaNova-Semibold";
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 690px) {
+  .jackpot-body__modes {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .jackpot-body__modes div {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .jackpot-body__stats {
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+
+  .jackpot-body__stats .grey-line {
+    height: 1px;
+    width: 32px;
+  }
+
+  .jackpot-body__stats .grey-line, .jackpot-body__stats__item {
+    margin-top: 30px;
+  }
+
+  .jackpot-body__stats__item:last-child {
+    margin-bottom: 30px;
+  }
+
+  .jackpot-body__user-story {
+    margin-top: 25px;
+  }
+
+  .jackpot-body__bets__item__info span, .jackpot-body__bets__item__amount label, .jackpot-body__tickets {
+    display: none;
   }
 }

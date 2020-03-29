@@ -26,7 +26,7 @@ $(document).ready(function () {
     });
 
     $('#amountOfCoins').change(function () {
-        let result = $(this).val() / 100 * 98;
+        let result = ($(this).val() / 10) / 100 * 98;
         $('.withdraw-body__result span').html(result.toFixed(2));
     });
 });

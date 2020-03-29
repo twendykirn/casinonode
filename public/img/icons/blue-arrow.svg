@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.41" height="28.563" viewBox="0 0 31.41 28.563">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #5271e8;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="blue-arrow.svg" class="cls-1" d="M1076.93,965.484l-15.7-15.454-15.69,15.454V952.375l15.69-15.454,15.7,15.454v13.109Z" transform="translate(-1045.53 -936.906)"/>
+</svg>

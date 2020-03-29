@@ -1,4 +1,19 @@
 $(document).ready(function () {
+  function checkMenu() {
+    if ($('html').css('width') < '730px') {
+      if (!$('main .menu').hasClass('menu-opened')) {
+        $('main .menu').addClass('menu-opened').css('width', '100vw');
+        $('.mob-menu').html('<i class="fas fa-times"></i>');
+      } else {
+        $('main .menu').removeClass('menu-opened').css('width', '0');
+        $('.mob-menu').html('<i class="fas fa-bars"></i>');
+      }
+    }
+  }
+
+  $('.mob-menu').on('click', function () {
+    checkMenu();
+  });
 
   $('#faq').on('click', function () {
     $('.menu__items__item').removeClass('focus');
@@ -79,6 +94,22 @@ $(document).ready(function () {
     })
   });
 
+  $('#jackpot').on('click', function () {
+    $('.menu__items__item').removeClass('focus');
+    $('#jackpot').addClass('focus');
+    $.post({
+      url: '/jackpot',
+      data: { word: "jackpot" }
+    }).done(function (res) {
+      if (res != 'error') {
+        $('main .fixed-container').html(res);
+        $.getScript('../js/jackpot.js');
+      } else {
+        location.reload(true);
+      }
+    })
+  });
+
   $('#bonus').on('click', function () {
     $('.menu__items__item').removeClass('focus');
     $('#bonus').addClass('focus');
@@ -97,14 +128,5 @@ $(document).ready(function () {
   $(".menu__btn").on("click", function () {
     $(".menu__items__item span").toggle("normal");
     $('.menu__btn img').toggleClass("active");
-  });
-
-  $(".faq-answers__answer").on("click", function () {
-    $(this)
-      .children("p")
-      .toggle("normal");
-    $(this)
-      .find(".faq-arrow")
-      .toggleClass("active");
   });
 });

@@ -1,0 +1,87 @@
+<div class="jackpot-body">
+    <img class="logo" src="../img/icons/logo.svg">
+    <h2>JackPot</h2>
+    <div class="green-line"></div>
+    <div class="jackpot-body__stats">
+        <div class="jackpot-body__stats__item">
+            <span>892959 <img src="../img/coin.png"></span>
+            <p>Максимальный<br />джекпот за всё время</p>
+        </div>
+        <div class="grey-line"></div>
+        <div class="jackpot-body__stats__item">
+            <span>3003</span>
+            <p>Количество<br />игр сегодня</p>
+        </div>
+        <div class="grey-line"></div>
+        <div class="jackpot-body__stats__item">
+            <span>257110 <img src="../img/coin.png"></span>
+            <p>Максимальный<br />джекпот сегодня</p>
+        </div>
+    </div>
+    <span class="jackpot-body__user-story"><img src="../img/icons/history.svg"> Моя история игр</span>
+    <h2>Текущая игра</h2>
+    <label>Выберите режим:</label>
+    <div class="jackpot-body__modes">
+        <div class="jackpot-body__modes__background"></div>
+        <div class="jackpot-body__modes__item" id="classic">
+            <h6>Классик</h6>
+            <span>от 100 <img src="../img/coin.png"></span>
+            <label>Банк: 296 <img src="../img/coin.png"></label>
+        </div>
+        <div class="jackpot-body__modes__item" id="major">
+            <h6>Мажор</h6>
+            <span>от 1000 <img src="../img/coin.png"></span>
+            <label>Банк: 296 <img src="../img/coin.png"></label>
+        </div>
+        <div class="jackpot-body__modes__item" id="poor">
+            <h6>Бомж</h6>
+            <span>1-300 <img src="../img/coin.png"></span>
+            <label>Банк: 0 <img src="../img/coin.png"></label>
+        </div>
+    </div>
+    <h2 class="jackpot-body__jackpot-rn">Джекпот сейчас: 565 <img src="../img/coin.png"></h2>
+    <div class="jackpot-body__progress-bar">
+        <div class="jackpot-body__progress-bar__background">
+            <div class="wrapper">
+                <img src="../img/icons/blue-arrow.svg">
+                <img src="../img/icons/blue-arrow.svg">
+            </div>
+        </div>
+    </div>
+    <div class="jackpot-body__timer">
+        <span>Новая игра через:</span>
+        <label>45 сек</label>
+    </div>
+    <span class="jackpot-body__user-balance">Ваш баланс: 38000 <img src="../img/coin.png"></span>
+    <form action="" class="jackpot-body__bet-amount">
+        <input type="number">
+        <button type="submit" class="jackpot-body__btn-bet">Сделать ставку</button>
+    </form>
+    <div class="jackpot-body__bets">
+        <% if(users.length > 0) { %>
+        <% users.forEach(function(user) { %>
+        <div class='jackpot-body__bets__item'>
+            <div class='jackpot-body__bets__item__info'>
+                <div class='photo'>
+                    <img <%= user.photo %>>
+                </div>
+                <span><%= user.name %> <%= user.surname %></span>
+            </div>
+            <span class="jackpot-body__bets__item__amount">
+                <label>Поставил: </label> <%= user.bet %>
+                <img src="../img/coin.png">
+            </span>
+            <div class="jackpot-body__bets__item__chance">
+                <div class="jackpot-body__tickets">
+                    <span>Билеты:</span>
+                    <span class="jackpot-body__tickets__number">#4054-4055</span>
+                </div>
+                <div class="jackpot-body__percent">
+                    <span>22%</span>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+        <% }; %>
+    </div>
+</div>

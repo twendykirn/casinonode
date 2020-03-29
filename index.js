@@ -6,6 +6,7 @@ const session = require('express-session');
 const config = require('config.json')('./config.json');
 
 const app = express();
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,7 +22,6 @@ app.use(session({
         expires: 600000
     }
 }));
-
 
 app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.user) {
@@ -61,10 +61,7 @@ passport.use(new VKontakteStrategy({
 
 app.get('/auth/vkontakte',
     passport.authenticate('vkontakte'),
-    function (req, res) {
-        // The request will be redirected to vk.com for authentication, so
-        // this function will not be called.
-    });
+    function (req, res) { });
 
 app.get('/auth/vkontakte/callback',
     passport.authenticate('vkontakte', {
@@ -81,12 +78,12 @@ app.get('/games', function (req, res) {
         res.redirect('/');
     } else {
         let sess = req.session;
-        if (sess.user['photo_big'] == undefined) {
-            res.redirect('/');
-        } else {
+        try {
             res.render('games', {
                 photo: "src=" + sess.user['photo_big']
             })
+        } catch (error) {
+            res.redirect('/');
         }
     }
 })
@@ -141,6 +138,26 @@ app.route('/ref').post(function (req, res) {
     res.redirect('/');
 });
 
+let userStat = {};
+app.route('/jackpot').post(function (req, res) {
+    if (!req.session.user && !req.cookies.user_sid && !req.body.word) {
+        res.send('error');
+    } else {
+        let sess = req.session;
+        if (sess.user['photo_big'] == undefined) {
+            res.redirect('/');
+        } else {
+            userStat = { name: sess.user['first_name'], surname: sess.user['last_name'], photo: "src=" + sess.user['photo_big'] }
+            res.render('jackpot', {
+                photo: "src=" + sess.user['photo_big'],
+                users: users
+            })
+        }
+    }
+}).get(function (req, res) {
+    res.redirect('/');
+});
+
 app.route('/bonus').post(function (req, res) {
     if (!req.session.user && !req.cookies.user_sid && !req.body.word) {
         res.send('error');
@@ -157,8 +174,34 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-let server = require('http').Server(app);
-
-server.listen(config.http.port, config.http.host, function () {
+let server = app.listen(config.http.port, config.http.host, function () {
     console.log("Listening!");
+});;
+let io = require('socket.io')(server);
+
+let users = [];
+let globalTime;
+function timer() {
+    let time = 45000;
+    let currentTime = time;
+    let countDown = setInterval(function () {
+        if (currentTime == 0) {
+            currentTime = time;
+            users = [];
+        }
+        currentTime = currentTime - 1000;
+        globalTime = currentTime;
+    }, 1000);
+}
+
+timer();
+io.on('connection', function (socket) {
+    socket.on('bet', function (betStat) {
+        userStat = { ...userStat, bet: betStat.bet };
+        users.push(userStat)
+        io.emit('bet', userStat);
+    });
+    socket.on('time', function () {
+        io.emit('time', globalTime);
+    });
 });

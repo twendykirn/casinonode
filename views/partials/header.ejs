@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel='icon' href='favicon.ico' type='image/x-icon' />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://kit.fontawesome.com/4ae9673331.js" crossorigin="anonymous"></script>
   <title>EasyMoney</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/games.css" />
@@ -34,10 +34,32 @@
             <img src="../img/coin.png" alt="coin" />
           </div>
         </div>
-        <a class="btn-login btn-add-balance">
+        <div class="btn-login btn-add-balance">
           <img src="../img/icons/add.svg" alt="plus" />Пополнить
-        </a>
+        </div>
       </nav>
+    </div>
+    <div class="mob-header fixed-container">
+      <div class="header__avatar">
+        <a href="/logout" class="header__avatar__logout"><img src="../img/icons/e33.svg" alt="e33" /></a>
+        <div class="header__avatar__photo">
+          <img <%= photo %> />
+        </div>
+        <div class="header__avatar__balance">
+          <span>38000</span>
+          <img src="../img/coin.png" alt="coin" />
+        </div>
+      </div>
+      <div class="first-section__desc__statistics__online">
+        <span>Сейчас играют:</span>
+        <div class="first-section__desc__statistics__online__users">
+          <img src="../img/icons/user.svg" alt="user icon" />
+          <span>23718</span>
+        </div>
+      </div>
+      <div class="mob-menu">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </header>
   <main>
@@ -67,7 +89,7 @@
         <div class="menu__items__item" id="youtube">
           <img src="../img/icons/youtube.svg"><span>Для ютуберов</span>
         </div>
-        <a href="https://vk.com/im?media=&sel=-185691473" target="_blank" class="menu__items__item" id="support">
+        <a href="https://vk.com/im?media=&sel=-193370373" target="_blank" class="menu__items__item" id="support">
           <img src="../img/icons/volunteer.svg"><span>Поддержка</span>
         </a>
         <a href="/logout" class="menu__items__item" id="exit">
