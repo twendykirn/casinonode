@@ -58,17 +58,15 @@
         <button type="submit" class="jackpot-body__btn-bet">Сделать ставку</button>
     </form>
     <div class="jackpot-body__bets">
-        <% if(users.length > 0) { %>
-        <% users.forEach(function(user) { %>
         <div class='jackpot-body__bets__item'>
             <div class='jackpot-body__bets__item__info'>
                 <div class='photo'>
-                    <img <%= user.photo %>>
+                    <img <%= photo %>>
                 </div>
-                <span><%= user.name %> <%= user.surname %></span>
+                <span>Кирилл Арефьев</span>
             </div>
             <span class="jackpot-body__bets__item__amount">
-                <label>Поставил: </label> <%= user.bet %>
+                <label>Поставил: </label> 800
                 <img src="../img/coin.png">
             </span>
             <div class="jackpot-body__bets__item__chance">
@@ -81,7 +79,5 @@
                 </div>
             </div>
         </div>
-        <% }); %>
-        <% }; %>
     </div>
 </div>

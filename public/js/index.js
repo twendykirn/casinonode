@@ -1,4 +1,18 @@
 $(document).ready(function () {
+  $('.menu__items__item').removeClass('focus');
+  $('#double').addClass('focus');
+  $.post({
+    url: '/double',
+    data: { word: "double" }
+  }).done(function (res) {
+    if (res != 'error') {
+      $('main .fixed-container').html(res);
+      $.getScript('../js/double.js');
+    } else {
+      location.reload(true);
+    }
+  })
+
   function checkMenu() {
     if ($('html').css('width') < '730px') {
       if (!$('main .menu').hasClass('menu-opened')) {
@@ -104,6 +118,38 @@ $(document).ready(function () {
       if (res != 'error') {
         $('main .fixed-container').html(res);
         $.getScript('../js/jackpot.js');
+      } else {
+        location.reload(true);
+      }
+    })
+  });
+
+  $('#nvuti').on('click', function () {
+    $('.menu__items__item').removeClass('focus');
+    $('#nvuti').addClass('focus');
+    $.post({
+      url: '/nvuti',
+      data: { word: "nvuti" }
+    }).done(function (res) {
+      if (res != 'error') {
+        $('main .fixed-container').html(res);
+        $.getScript('../js/nvuti.js');
+      } else {
+        location.reload(true);
+      }
+    })
+  });
+
+  $('#double').on('click', function () {
+    $('.menu__items__item').removeClass('focus');
+    $('#double').addClass('focus');
+    $.post({
+      url: '/double',
+      data: { word: "double" }
+    }).done(function (res) {
+      if (res != 'error') {
+        $('main .fixed-container').html(res);
+        $.getScript('../js/double.js');
       } else {
         location.reload(true);
       }

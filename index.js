@@ -48,9 +48,9 @@ const passport = require('passport');
 const VKontakteStrategy = require('passport-vkontakte').Strategy;
 
 passport.use(new VKontakteStrategy({
-    clientID: '7378933',
-    clientSecret: 'HhMJ8xL1ZHPYNEmjLUGp',
-    callbackURL: "https://easykesh.ru/auth/vkontakte/callback",
+    clientID: '7373573',
+    clientSecret: '9NfXagL0YkFxnRiKBr3j',
+    callbackURL: "http://localhost:3000/auth/vkontakte/callback",
     scope: ['groups'],
     profileFields: ['uid', 'first_name', 'last_name', 'photo_big']
 },
@@ -138,7 +138,6 @@ app.route('/ref').post(function (req, res) {
     res.redirect('/');
 });
 
-let userStat = {};
 app.route('/jackpot').post(function (req, res) {
     if (!req.session.user && !req.cookies.user_sid && !req.body.word) {
         res.send('error');
@@ -147,10 +146,42 @@ app.route('/jackpot').post(function (req, res) {
         if (sess.user['photo_big'] == undefined) {
             res.redirect('/');
         } else {
-            userStat = { name: sess.user['first_name'], surname: sess.user['last_name'], photo: "src=" + sess.user['photo_big'] }
             res.render('jackpot', {
-                photo: "src=" + sess.user['photo_big'],
-                users: users
+                photo: "src=" + sess.user['photo_big']
+            })
+        }
+    }
+}).get(function (req, res) {
+    res.redirect('/');
+});
+
+app.route('/nvuti').post(function (req, res) {
+    if (!req.session.user && !req.cookies.user_sid && !req.body.word) {
+        res.send('error');
+    } else {
+        let sess = req.session;
+        if (sess.user['photo_big'] == undefined) {
+            res.redirect('/');
+        } else {
+            res.render('nvuti', {
+                photo: "src=" + sess.user['photo_big']
+            })
+        }
+    }
+}).get(function (req, res) {
+    res.redirect('/');
+});
+
+app.route('/double').post(function (req, res) {
+    if (!req.session.user && !req.cookies.user_sid && !req.body.word) {
+        res.send('error');
+    } else {
+        let sess = req.session;
+        if (sess.user['photo_big'] == undefined) {
+            res.redirect('/');
+        } else {
+            res.render('double', {
+                photo: "src=" + sess.user['photo_big']
             })
         }
     }
@@ -179,7 +210,6 @@ let server = app.listen(config.http.port, config.http.host, function () {
 });;
 let io = require('socket.io')(server);
 
-let users = [];
 let globalTime;
 function timer() {
     let time = 45000;
@@ -187,7 +217,6 @@ function timer() {
     let countDown = setInterval(function () {
         if (currentTime == 0) {
             currentTime = time;
-            users = [];
         }
         currentTime = currentTime - 1000;
         globalTime = currentTime;
@@ -196,11 +225,6 @@ function timer() {
 
 timer();
 io.on('connection', function (socket) {
-    socket.on('bet', function (betStat) {
-        userStat = { ...userStat, bet: betStat.bet };
-        users.push(userStat)
-        io.emit('bet', userStat);
-    });
     socket.on('time', function () {
         io.emit('time', globalTime);
     });
