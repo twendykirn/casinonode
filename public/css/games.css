@@ -6,6 +6,17 @@ header .fixed-container {
   max-width: 1270px;
 }
 
+header .logo h1, footer .logo h1 {
+  font-family: 'Gotu', sans-serif;
+}
+
+header .logo h1 {
+  background: linear-gradient(90deg, #76c02f, #aae439);
+  font-size: 30px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .header__buttons span {
   min-width: auto;
   margin-right: 0;

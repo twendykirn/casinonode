@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+
 @font-face {
   font-family: "ProximaNova-Extrabld";
   src: url("../fonts/ProximaNova-Extrabld.ttf") format("truetype");
@@ -369,17 +371,15 @@ footer .fixed-container {
 }
 
 footer .logo {
-  font-family: "ProximaNova-Extrabld";
-  font-size: 28px;
-  color: rgba(255, 255, 255, 0.16);
   margin-bottom: 15px;
 }
 
-footer .logo img {
-  width: 60px;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  opacity: .59;
+
+footer .logo h1 {
+  font-family: 'Gotu', sans-serif;
+  font-family: "ProximaNova-Extrabld";
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.16);
 }
 
 footer .coins2 {
